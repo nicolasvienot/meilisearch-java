@@ -1,9 +1,6 @@
 name: OSSRH
 
-on:
-  push:
-    tags:
-      - v*
+on: push
 
 jobs:
   deploy:
@@ -27,8 +24,8 @@ jobs:
         env:
           OSSRH_USERNAME: ${{secrets.OSSRH_USERNAME}}
           OSSRH_PASSWORD: ${{secrets.OSSRH_PASSWORD}}
-      - name: Close and release Nexus Repository
-        run: ./gradlew closeAndReleaseRepository
-        env:
-          OSSRH_USERNAME: ${{secrets.OSSRH_USERNAME}}
-          OSSRH_PASSWORD: ${{secrets.OSSRH_PASSWORD}}
+      # - name: Close and release Nexus Repository
+      #   run: ./gradlew closeAndReleaseRepository
+      #   env:
+      #     OSSRH_USERNAME: ${{secrets.OSSRH_USERNAME}}
+      #     OSSRH_PASSWORD: ${{secrets.OSSRH_PASSWORD}}
