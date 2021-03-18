@@ -1,6 +1,8 @@
 name: OSSRH
 
-on: push
+on:
+  release:
+    types: [released]
 
 jobs:
   deploy:
